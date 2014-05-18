@@ -4,27 +4,18 @@
  */
 
 angular.module('App', ['ngRoute', 'App.Controllers'])
-    .config(['$routeProvider', function ($routeProvider) {
+    .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         $routeProvider
-            .when('/users', {
+            .when('/misc', {
+                templateUrl: 'partials/users',
+                controller: 'UsersListCtrl'
+            })
+            .when('/', {
                 templateUrl: 'partials/users',
                 controller: 'UsersListCtrl'
             })
             .otherwise({
-                redirectTo: '/users'
+                redirectTo: '/'
             });
+        //$locationProvider.html5Mode(true);
     }]);
-
-
-//angular.module('App', ['ngRoute', 'App.Controllers'])
-//    .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-//        $routeProvider
-//            .when('/users', {
-//                templateUrl: 'partials/users.jade',
-//                controller: 'App.Users'
-//            })
-//            .otherwise({
-//                redirectTo: '/users'
-//            });
-//        $locationProvider.html5Mode(true);
-//    }]);

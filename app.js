@@ -23,6 +23,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+
+// Bower
+app.use('/bower_components/', express.static(path.join(__dirname, '/bower_components')));
+// AngularJs
 app.get('/partials/:name', function (req, res) {
     var name = req.params.name;
     res.render('partials/' + name);
