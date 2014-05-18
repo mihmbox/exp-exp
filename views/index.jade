@@ -1,5 +1,10 @@
 extends layout
+block head
+    script(src='/javascripts/main.js')
+    script(src='/javascripts/controllers.js')
 
 block content
-  h1= title
-  p Welcome to #{title}
+    div
+        h1= title
+        p Welcome to #{title}
+        div(ng-view)
